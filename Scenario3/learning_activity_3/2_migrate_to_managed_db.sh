@@ -1,6 +1,6 @@
 # Set an environment variable with the DNS endpoint of the managed
 
-LS_ENDPOINT = 'DNSENDPOINTOFDB' # (set this to your DB's DNS name, replace DNSENDPOINTOFDB)
+LS_ENDPOINT='DNSENDPOINTOFDB' # (set this to your DB's DNS name, replace DNSENDPOINTOFDB)
 
 # Set authentication variables
 
