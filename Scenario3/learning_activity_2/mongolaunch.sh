@@ -1,6 +1,10 @@
 #!/bin/bash
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
-echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+sudo apt-get install gnupg curl wget apt-transport-https ca-certificates software-properties-common
+wget -qO- \
+  https://pgp.mongodb.com/server-7.0.asc | \
+  gpg --dearmor | \
+  sudo tee /usr/share/keyrings/mongodb-server-7.0.gpg >/dev/null
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
 sudo apt-get update
 sudo apt-get install -y mongodb-org
 
